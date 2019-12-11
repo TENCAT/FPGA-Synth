@@ -13,7 +13,7 @@ This project is submitted as a final project for our CE-412 class.
   - Square wave
   - Triangle wave
   - SawTooth wave
-  - Revesrse of all the above
+  - Revesrse SawTooth waveform
   
 # Current Status
 We are currently wokring on the following:
