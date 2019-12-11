@@ -1,0 +1,11 @@
+module n_shift_reg(CLK,d,reset,q);
+parameter n=8;
+input CLK,reset;
+output reg [n-2:0] q;
+
+always@(posedge CLK,negedge reset)
+if(!reset)
+	Q<=d;
+else
+	Q<=(Q>>1) +Q[0];
+endmodule

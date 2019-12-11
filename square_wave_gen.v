@@ -2,10 +2,10 @@ module square_wave_gen(clk,note,en,speak_out);
 input clk,en;
 input [2:0] note;
 output reg speak_out;
-wire speak;
+reg speak;
 
-localparam maxcnt=0;
-localparam clk_count=0;
+reg [19:0]  maxcnt;
+reg [19:0] clk_count;
 always @(note)
 	begin
 		case(note)
@@ -22,18 +22,18 @@ always @(note)
 
 always@(posedge clk)
 begin
-	if(clk_count>=maxcn)	
+	if(clk_count>=maxcnt)	
 	begin
-		speak=!speak;		//create 50% duty cycle
+		speak <= !speak;		//create 50% duty cycle
 		clk_count=0;
 	end
 	else
 		clk_count=clk_count+1;
-	end
 	if(en)
 		speak_out=speak;
 	else
 		speak_out=0;
 		
 end
+
 endmodule		
